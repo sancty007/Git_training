@@ -274,6 +274,12 @@ T
 23. **`git clean -f`** : Supprime définitivement les fichiers non suivis (utilisez avec prudence).
 
 24. **`git remote add`** : Ajoute un dépôt distant à la liste des dépôts distants configurés pour votre projet.
+{
+   git remote add origin <URL-du-depot-distant>
+}
+
+***git remote -v ** : Pour vous assurer que le dépôt distant est correctement associé à votre dépôt local, 
+
 
 25. **`git remote remove`** : Supprime un dépôt distant de la liste des dépôts distants configurés.
 
@@ -290,7 +296,7 @@ NB :
 
 La commande `git push origin master` est utilisée pour pousser la branche locale "master" vers la branche "master" du dépôt distant "origin". Voici ce qui se passe lorsque vous exécutez cette commande :
 
-1. Git vérifie que vous avez les dernières modifications du dépôt distant "origin". Si d'autres personnes ont poussé des modifications sur la branche "master" depuis la dernière fois que vous avez synchronisé, Git vous demandera de récupérer ces modifications en utilisant `git pull` avant de pouvoir pousser vos modifications locales.
+1. Git  vérifie que vous avez les dernières modifications du dépôt distant "origin". Si d'autres personnes ont poussé des modifications sur la branche "master" depuis la dernière fois que vous avez synchronisé, Git vous demandera de récupérer ces modifications en utilisant `git pull` avant de pouvoir pousser vos modifications locales.
 
 2. Si vous avez déjà récupéré les dernières modifications du dépôt distant "origin" (ou s'il n'y a pas eu de modifications depuis votre dernière synchronisation), Git procédera à la tentative de mise à jour de la branche "master" du dépôt distant avec vos modifications locales.
 
