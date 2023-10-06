@@ -1,0 +1,301 @@
+ https://git-scm.com/doc  : documentation officielle 
+
+GIT est un système de gestion de versions décentralisé (VCS, pour Version Control System) qui permet de suivre l'évolution des fichiers et du code source d'un projet informatique. Il a été créé par Linus Torvalds en 2005 et est devenu un outil essentiel pour les développeurs de logiciels, les équipes de développement et les projets collaboratifs.
+
+Voici quelques points clés sur GIT :
+
+1. **Gestion de versions** : GIT permet de suivre l'historique des modifications apportées aux fichiers d'un projet, ce qui permet de voir qui a fait quoi, quand et pourquoi.
+
+2. **Décentralisé** : Contrairement à certains systèmes de gestion de versions centralisés, comme SVN, GIT est décentralisé. Chaque copie locale d'un dépôt GIT contient l'historique complet du projet, ce qui permet de travailler de manière autonome même en l'absence de connexion réseau.
+
+3. **Branches** : GIT facilite la gestion des branches, ce qui permet de travailler sur différentes fonctionnalités ou versions du projet en parallèle. Vous pouvez fusionner ces branches lorsque vous êtes prêt.
+
+4. **Collaboration** : GIT facilite la collaboration entre les membres d'une équipe. Plusieurs développeurs peuvent travailler sur le même projet en utilisant GIT pour gérer les conflits et les mises à jour.
+
+5. **Suivi des modifications** : GIT suit précisément les modifications apportées aux fichiers, ce qui permet de revenir à des versions précédentes en cas de besoin. Il prend en charge les commits (enregistrements des modifications), les tags (étiquettes pour marquer des versions spécifiques) et les branches.
+
+6. **Plateformes de partage** : De nombreuses plateformes d'hébergement de code, telles que GitHub, GitLab et Bitbucket, prennent en charge GIT. Ces plateformes permettent de stocker des dépôts GIT en ligne, de collaborer avec d'autres développeurs et de gérer des projets à partir d'une interface web conviviale.
+
+7. **Open Source** : GIT est un logiciel open source, ce qui signifie qu'il est librement disponible et peut être utilisé, modifié et distribué par n'importe qui.
+
+En résumé, GIT est un système de gestion de versions largement utilisé dans le développement logiciel pour suivre, collaborer et gérer l'évolution des projets. Il offre une grande flexibilité, une gestion avancée des branches, et facilite le travail en équipe sur des projets de toutes tailles.
+
+Git bash :
+
+configuration de git : 
+git config --global user.name  ""
+git config --global user.email "l'adresse"
+
+#Creation d'un dossier et initialisation :
+git init (initialiser un repertoire quand on est dedans )
+
+# Enregister un fichier (syncronisation):
+
+En GIT, un fichier peut se trouver dans plusieurs états différents au sein du système de gestion de versions. Ces états décrivent l'état actuel du fichier par rapport à la dernière version validée (commitée) dans le référentiel. Les principaux états d'un fichier GIT sont les suivants :
+
+1. **Untracked (Non suivi)** : Dans cet état, le fichier n'est pas encore suivi par GIT. Cela signifie que GIT ne sait pas que le fichier existe.
+
+2. **Staged (Préparé)** : Lorsque vous ajoutez un fichier à la zone de staging (zone de préparation) à l'aide de la commande `git add`, le fichier passe dans cet état. Les fichiers dans cet état sont prêts à être inclus dans le prochain commit.
+
+$ git add file 
+$ git commit -m "description"  
+$ git commit -a (ajout et commit ) 
+
+$ git add -all * (tous les fichiers des repertoires )
+$ git mv ancien_nom nouveau_nom (renommer un fichiers )
+$ git rm nom_ficier (supprimer un fichier)
+
+$ git log (avoir les traces des modifications ou des commit )
+$ git status (voir les etats des fichiers)
+$ git diff commit1 commit2 
+
+
+NB : Tous actions sur un fichier  doivent être  commit 
+
+3. **Unmodified (Non modifié)** : Un fichier se trouve dans cet état lorsqu'il correspond à la version dans le dernier commit et n'a pas été modifié depuis. C'est l'état de base d'un fichier après un commit.
+
+4. **Modified (Modifié)** : Si vous modifiez un fichier qui était dans l'état "Unmodified," il passe dans l'état "Modified." Cela signifie qu'il a été modifié depuis le dernier commit.
+  
+5. **Staged for Commit (Prêt pour le commit)** : Si vous avez modifié un fichier et que vous l'ajoutez ensuite à la zone de staging avec `git add`, il passe dans cet état. Cela signifie que les modifications apportées au fichier seront incluses dans le prochain commit.
+
+6. **Deleted (Supprimé)** : Si vous supprimez un fichier qui était suivi par GIT, il passe dans cet état. GIT garde une trace des suppressions, de sorte que vous pouvez restaurer le fichier si nécessaire.
+
+7. **Renamed (Renommé)** : Si vous renommez un fichier qui est suivi par GIT, il passe dans cet état. GIT suit le renommage du fichier.
+
+8. **Unmerged (Non fusionné)** : Lorsqu'il y a des conflits de fusion (merge conflicts) entre différentes branches, un fichier peut se trouver dans cet état. Vous devez résoudre les conflits manuellement avant de pouvoir le commit.
+
+9. **Ignored (Ignoré)** : Vous pouvez configurer GIT pour ignorer certains fichiers ou répertoires en les ajoutant à un fichier `.gitignore`. Ces fichiers sont dans l'état "Ignoré" et ne sont pas suivis par GIT.
+
+Il est important de comprendre ces états pour bien gérer vos fichiers et votre workflow GIT. Vous pouvez vérifier l'état de vos fichiers en utilisant la commande `git status`. Elle vous montrera quels fichiers sont dans la zone de staging, quels fichiers ont été modifiés, quels fichiers ont été supprimés, etc. En comprenant ces états, vous pourrez effectuer les actions appropriées, comme `git add`, `git commit`, ou résoudre les conflits en conséquence.
+
+
+Recuperation d'un projet sur gitHub :
+
+
+$ git clone "chemin/vers/le projet github" 
+             "nom du depot"              [nom du nouveau projet cloner]
+
+$ git clone https://github.com/utilisateur/nom-depot.git (Cela clonera le dépôt distant depuis GitHub dans un répertoire local avec le nom  nom-depot.) 
+
+
+
+$ git pull (faire des mise à jour du depot ou projet )
+
+- `git init` est utilisé pour initialiser un nouveau dépôt Git dans un répertoire local vide.
+
+- `git add` est utilisé pour ajouter des fichiers modifiés ou nouveaux à la zone de staging en vue d'un commit.
+
+- `git commit` est utilisé pour créer un nouveau commit avec les fichiers ajoutés à la zone de staging.
+(
+créer un nouveau commit pour enregistrer les modifications de votre répertoire
+Chaque commit a un identifiant unique (SHA-1) qui lui est attribué.
+
+)
+- `git log` permet d'afficher l'historique des commits.
+
+- `git status` est utilisé pour voir l'état actuel de vos fichiers par rapport au dépôt Git.
+
+- `git diff` permet de voir les différences entre deux commits ou entre la zone de staging et les fichiers non suivis.
+(
+   ex : git diff abc123 def456
+)
+
+- `git pull` est utilisé pour récupérer les dernières modifications du dépôt distant (GitHub, GitLab, etc.) et les fusionner dans votre copie locale.
+{
+  git pull 
+  git pull --rebase : fusionner les branches 
+}
+
+- `git push` est utilisé pour pousser vos commits locaux vers le dépôt distant.
+{
+git push -u origin master : git push origin master, cela signifie "pousser la branche 'master' vers le dépôt distant appelé 'origin'".
+git push -f origin master
+}
+
+- `git reset` est utilisé pour annuler des commits ou réinitialiser la position actuelle de votre HEAD.
+   
+   git reset --hard HEAD^ (annuler les nouveaux commit sous forme d'une pile avec la commande en depilant toutes sauvegarde)
+   git reset --hard HEAD  (annuler tous les commites depuis la dernier modificion ) 
+)
+
+- `git revert` est utilisé pour créer un nouveau commit qui annule les modifications apportées par un commit spécifique.
+
+N'hésitez pas à poser des questions supplémentaires si vous avez besoin de plus d'informations sur ces commandes Git ou d'autres aspects de Git en général.
+
+
+#comment voir les anciens commit :
+
+git show abc123 (remplacez "abc123" par le SHA-1 du commit que vous voulez voir)
+
+# comment supprimer les logs (
+il n'y a pas de commande native pour supprimer complètement l'historique des commits ou des logs.
+Cependant, si vous souhaitez masquer ou réduire l'historique des commits pour des raisons spécifique
+)
+
+git rebase /  git rebase -i <commit_hash> / -i : 
+
+# Utilisation Avancée de git :
+
+
+La notion de Branche (master par defaut ):
+
+
+Les branches sont l'une des fonctionnalités fondamentales de Git et sont essentielles pour organiser, gérer et développer des projets de manière collaborative. Voici ce que vous devez savoir sur les branches dans Git :
+
+1. **Qu'est-ce qu'une branche ?** :
+   - Une branche est une ligne de développement indépendante dans un dépôt Git.
+   - Chaque branche peut contenir un ensemble de commits distincts qui représentent un travail spécifique ou une fonctionnalité du projet.
+
+2. **Pourquoi utiliser des branches ?** :
+   - Les branches permettent de travailler simultanément sur différentes fonctionnalités ou corrections de bogues sans interférer les unes avec les autres.
+   - Elles permettent de maintenir une version principale (généralement appelée "branche principale" ou "branche master") stable tout en développant de nouvelles fonctionnalités ou en corrigeant des bogues dans des branches séparées.
+   - Les branches facilitent le développement collaboratif en permettant à plusieurs contributeurs de travailler sur des fonctionnalités distinctes en parallèle.
+
+3. **Principales opérations avec les branches** :
+   - Création d'une nouvelle branche : Vous pouvez créer une nouvelle branche à partir d'une branche existante en utilisant 
+
+    $ `git branch nom-de-branche`. : 
+(
+   git branch  [-r | -a ]: permet d'afficher les branch dans un projet , -r 
+   git branch -a : Affiche la liste de toutes les branches, à la fois locales et distantes, dans votre dépôt Git.
+   git branch -r : Affiche la liste des branches distantes (branches de suivi de dépôt distant) dans votre dépôt Git. 
+   Ces branches distantes sont généralement celles que vous suivez à partir d'un dépôt distant, 
+   comme un dépôt GitHub ou GitLab
+)
+
+   - Passage d'une branche à une autre : Vous pouvez passer d'une branche à une autre en utilisant 
+  
+    `git checkout nom-de-branche`.
+(
+	
+)
+   - Fusion de branches : Vous pouvez fusionner une branche dans une autre à l'aide de 
+   $`git merge nom-de-branche`.
+(
+)
+   - Suppression de branches : Vous pouvez supprimer une branche une fois qu'elle n'est plus nécessaire à l'aide de 
+$`git branch -d nom-de-branche`.
+(
+
+)
+Comment raméner les modification dans le projet principal : 
+
+1 - retourner dans le projet principal
+2 - dans le projet principal faire un  : git merge "nom de la branche qu'on veut fusionner "
+3 - faire un commit des modification apporter dans le fichier principal
+
+
+
+
+Les commandes git remote add et git fetch sont couramment utilisées en Git pour gérer les dépôts distants et récupérer les dernières modifications à partir de ces dépôts.
+
+$ git remote add origin <URL-du-depot-distant>   | origin :  "origin" est le nom conventionnellement utilisé pour faire référence au dépôt distant;
+c'est simplement un alias
+  
+
+git fetch est utilisé pour récupérer les dernières modifications depuis un dépôt distant sans fusionner les modifications dans votre branche de travail locale.
+
+$ git fetch origin 
+
+
+"git remote add " est utilisé pour ajouter une référence à un dépôt distant,
+tandis que "git fetch" est utilisé pour récupérer les modifications à partir de ce dépôt distant
+
+4. **Branche principale (master ou main)** :
+   - La branche principale est généralement la branche par défaut où se trouve le code principal et stable du projet.
+   - Tous les développements, fonctionnalités ou correctifs sont généralement effectués dans des branches distinctes avant d'être fusionnés dans la branche principale.
+
+5. **Workflow avec les branches** :
+   - Les workflows Git, tels que Git Flow ou GitHub Flow, définissent des conventions pour organiser le développement et la gestion des branches dans un projet.
+
+6. **Branches distantes** :
+   - Les dépôts Git distants (tels que sur GitHub ou GitLab) peuvent également avoir des branches pour suivre le développement d'un projet en collaboration avec d'autres.
+
+7. **Utilisation avancée** :
+   - Les branches peuvent être utilisées pour diverses opérations avancées telles que la création de branches temporaires, la réécriture de l'historique avec des branches de fonctionnalités, etc.
+
+En résumé, les branches sont un outil essentiel pour gérer le développement dans Git. Elles permettent d'organiser le travail, de collaborer efficacement et de maintenir un historique de développement propre et organisé pour les projets logiciels.
+
+
+Parlant travail en equipe : 
+
+Travailler en équipe avec Git est courant dans le développement de logiciels collaboratifs. Voici une liste de certaines des commandes Git les plus couramment utilisées pour faciliter le travail d'équipe :
+
+1. **`git clone`** : Clone un dépôt distant vers votre machine locale pour commencer à travailler dessus.
+T
+2. **`git pull`** : Récupère les dernières modifications à partir du dépôt distant et les fusionne dans votre branche locale.
+
+3. **`git push`** : Envoie vos modifications locales vers le dépôt distant, mettant à jour la branche correspondante sur le serveur.
+
+4. **`git branch`** : Affiche la liste des branches locales dans votre dépôt.
+
+5. **`git branch -r`** : Affiche la liste des branches distantes (suivi des branches de dépôt distant).
+
+6. **`git checkout`** : Permet de passer d'une branche à une autre ou de créer une nouvelle branche.
+
+7. **`git merge`** : Fusionne les modifications d'une branche dans une autre. Utile pour fusionner des fonctionnalités ou des correctifs de bogues.
+
+8. **`git rebase`** : Permet de réorganiser l'historique des commits en réécrivant les commits sur une autre branche. Peut rendre l'historique des commits plus linéaire.
+
+9. **`git stash`** : Permet de stocker temporairement des modifications locales non validées lorsque vous devez passer d'une tâche à une autre.
+
+10. **`git fetch`** : Récupère les dernières modifications depuis le dépôt distant sans fusionner. Vous pouvez ensuite vérifier les modifications avant de les fusionner.
+
+11. **`git remote`** : Affiche les dépôts distants configurés pour votre projet.
+
+12. **`git remote -v`** : Affiche les URL des dépôts distants configurés pour votre projet.
+
+13. **`git log`** : Affiche l'historique des commits pour la branche actuelle.
+
+14. **`git blame`** : Affiche qui a modifié chaque ligne d'un fichier donné, utile pour la traçabilité des modifications.
+
+15. **`git clone --branch <branch_name>`** : Clone un dépôt distant et se positionne directement sur la branche spécifiée.
+
+16. **`git checkout -b <new_branch>`** : Crée une nouvelle branche et se positionne dessus en une seule commande.
+
+17. **`git push --set-upstream origin <branch>`** ou -u: Définit la branche distante de suivi pour une nouvelle branche locale.
+{
+   git push -u origin <branch>
+   git push origin --delete nom_branche
+}
+
+18. **`git pull --rebase`** : Récupère les modifications distantes et effectue un rebase local au lieu d'une fusion.
+(
+  fusionner les branches 
+)
+19. **`git tag`** : Liste les balises existantes, utiles pour marquer des versions.
+
+20. **`git tag -a <tag_name> -m "Description"`** : Crée une balise annotée pour marquer une version spécifique.
+
+21. **`git push --tags`** : Envoie toutes les balises locales vers le dépôt distant.
+
+22. **`git clean -n`** : Affiche les fichiers non suivis qui peuvent être supprimés.
+
+23. **`git clean -f`** : Supprime définitivement les fichiers non suivis (utilisez avec prudence).
+
+24. **`git remote add`** : Ajoute un dépôt distant à la liste des dépôts distants configurés pour votre projet.
+
+25. **`git remote remove`** : Supprime un dépôt distant de la liste des dépôts distants configurés.
+
+26. **`git cherry-pick`** : Permet de sélectionner des commits spécifiques à partir d'une branche et de les appliquer à une autre.
+
+27. **`git fetch --prune`** : Supprime les références distantes qui ne sont plus valides.
+
+28. **`git log --oneline --graph`** : Affiche un historique de commits sous forme graphique pour mieux visualiser les branches et les fusions.
+
+Ces commandes Git sont essentielles pour la collaboration en équipe, que ce soit pour travailler sur des fonctionnalités distinctes, suivre les modifications des autres membres de l'équipe, fusionner les modifications en toute sécurité ou gérer les dépôts distants. Utilisez-les en fonction de vos besoins spécifiques lors du développement en équipe.
+
+
+NB : 
+
+La commande `git push origin master` est utilisée pour pousser la branche locale "master" vers la branche "master" du dépôt distant "origin". Voici ce qui se passe lorsque vous exécutez cette commande :
+
+1. Git vérifie que vous avez les dernières modifications du dépôt distant "origin". Si d'autres personnes ont poussé des modifications sur la branche "master" depuis la dernière fois que vous avez synchronisé, Git vous demandera de récupérer ces modifications en utilisant `git pull` avant de pouvoir pousser vos modifications locales.
+
+2. Si vous avez déjà récupéré les dernières modifications du dépôt distant "origin" (ou s'il n'y a pas eu de modifications depuis votre dernière synchronisation), Git procédera à la tentative de mise à jour de la branche "master" du dépôt distant avec vos modifications locales.
+
+3. Si vous avez la permission de pousser des modifications dans le dépôt distant "origin" et que personne n'a poussé de modifications concurrentes sur la branche "master", Git poussera vos modifications locales vers le dépôt distant "origin".
+
+4. Une fois que le processus est terminé avec succès, les modifications de la branche "master" de votre dépôt local seront maintenant reflétées dans la branche "master" du dépôt distant "origin".
+
+Cela signifie que les changements que vous avez effectués localement dans la branche "master" ont été partagés avec les autres collaborateurs du dépôt distant. La commande `git push` est essentielle pour synchroniser votre travail local avec le travail de l'équipe dans un environnement collaboratif. Assurez-vous d'avoir une compréhension claire des implications de cette commande, car elle modifie l'historique du dépôt distant.
