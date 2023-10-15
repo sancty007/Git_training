@@ -1,4 +1,41 @@
- https://git-scm.com/doc  : documentation officielle 
+
+1. **Ajouter un dépôt distant :** Pour lier votre dépôt local à un dépôt distant, utilisez la commande `git remote add`. Vous pouvez spécifier un alias (nom court) pour le dépôt distant et son URL.
+   $ git remote add alias url
+
+   Exemple :
+   $ git remote add origin https://github.com/votre-utilisateur/votre-depot.git
+  
+2. **Vérifier les dépôts distants :** Pour vérifier la liste des dépôts distants associés à votre dépôt local, utilisez `git remote -v` :
+
+   $ git remote -v
+
+   Cette commande vous montrera les alias et les URL des dépôts distants associés à votre dépôt local.
+
+3. **Vérifier les branches distantes :** Pour voir les branches distantes qui existent dans le dépôt distant que vous avez ajouté, vous pouvez utiliser `git branch -r` ou `git branch -a` :
+
+   $ git branch -r
+
+   ou
+   $ git branch -a
+   
+
+   Cela vous montrera les branches distantes disponibles dans le dépôt distant, ainsi que les branches locales qui suivent les branches distantes.
+
+4. **Récupérer les nouvelles modifications :** Pour télécharger (fetch) les nouvelles modifications depuis le dépôt distant et les inclure dans vos branches locales, vous pouvez utiliser la commande `git fetch` suivie du nom de l'alias que vous avez défini pour le dépôt distant :
+
+   $ git fetch alias
+  
+   Exemple :
+   $ git fetch origin
+  
+   Cette commande récupérera les dernières modifications du dépôt distant sans les fusionner avec vos branches locales. Vous devrez ensuite utiliser `git merge` ou `git pull` pour intégrer ces modifications dans vos branches locales si nécessaire.
+
+Votre procédure a été corrigée pour refléter la séquence correcte d'opérations. Assurez-vous d'adapter les noms d'alias et d'URL à vos propres besoins et configurations spécifiques.
+
+
+
+
+https://git-scm.com/doc  : documentation officielle 
 
 GIT est un système de gestion de versions décentralisé (VCS, pour Version Control System) qui permet de suivre l'évolution des fichiers et du code source d'un projet informatique. Il a été créé par Linus Torvalds en 2005 et est devenu un outil essentiel pour les développeurs de logiciels, les équipes de développement et les projets collaboratifs.
 
@@ -49,6 +86,9 @@ $ git log (avoir les traces des modifications ou des commit )
 $ git status (voir les etats des fichiers)
 $ git diff commit1 commit2 
 
+$git checkout  idd nomFichier (pour revenir à l'ancien fichier) 
+$ git revert sha (defaire un commit)
+
 
 NB : Tous actions sur un fichier  doivent être  commit 
 
@@ -92,6 +132,9 @@ Chaque commit a un identifiant unique (SHA-1) qui lui est attribué.
 
 )
 - `git log` permet d'afficher l'historique des commits.
+{
+   git log --oneline fichier // voir les commit d'un fichier specifique 
+}
 
 - `git status` est utilisé pour voir l'état actuel de vos fichiers par rapport au dépôt Git.
 
@@ -116,11 +159,65 @@ git push -f origin master
    
    git reset --hard HEAD^ (annuler les nouveaux commit sous forme d'une pile avec la commande en depilant toutes sauvegarde)
    git reset --hard HEAD  (annuler tous les commites depuis la dernier modificion ) 
+   git reset -- nomfichier 
+   git reset   sha
+   git reset HEAD^ soft et --mixed 
+   git reset HEAD^ --hard  
 )
 
 - `git revert` est utilisé pour créer un nouveau commit qui annule les modifications apportées par un commit spécifique.
 
 N'hésitez pas à poser des questions supplémentaires si vous avez besoin de plus d'informations sur ces commandes Git ou d'autres aspects de Git en général.
+
+
+l'utilisation de la commande `git reset` en Git, qui est effectivement un outil puissant pour annuler des commits ou réinitialiser la position de votre HEAD. Voici une structure pour comprendre en détail son utilisation :
+
+# La commande `git reset` en Git
+
+La commande `git reset` est utilisée pour annuler des commits ou réinitialiser la position actuelle de votre HEAD dans un dépôt Git. Elle est souvent utilisée pour corriger des erreurs de commit, réorganiser l'historique des commits, ou revenir en arrière pour tester des modifications. Voici quelques utilisations courantes de `git reset` :
+
+## 1. Annuler les commits
+
+### a. `git reset --soft HEAD^`
+   - Cette commande annule le commit le plus récent en conservant les modifications dans l'aire de préparation (staging area).
+   
+### b. `git reset --mixed HEAD^`
+   - Cela annule le commit le plus récent en déplaçant les modifications dans l'aire de travail (working directory) sans les supprimer.
+
+### c. `git reset --hard HEAD^`
+   - Cette commande annule le commit le plus récent en supprimant toutes les modifications associées.
+
+## 2. Annuler tous les commits depuis la dernière modification
+
+   - `git reset --hard HEAD`
+     - Cela revient à l'état du dernier commit, en supprimant tous les commits ultérieurs et leurs modifications.
+
+## 3. Annuler un fichier spécifique
+
+   - `git reset -- nomfichier`
+     - Cela permet d'annuler les modifications d'un fichier spécifique dans l'aire de préparation.
+
+## 4. Annuler un commit spécifique
+
+   - `git reset sha`
+     - En utilisant le hachage SHA-1 du commit cible, vous pouvez annuler un commit particulier en conservant ses modifications dans l'aire de préparation ou en les supprimant.
+
+## 5. Options `--soft`, `--mixed`, et `--hard`
+
+   - Ces options déterminent le comportement de `git reset` en ce qui concerne les modifications dans l'aire de préparation et l'aire de travail.
+
+   - `--soft` conserve les modifications dans l'aire de préparation.
+   - `--mixed` déplace les modifications dans l'aire de travail.
+   - `--hard` supprime complètement les modifications.
+
+## 6. Résumé
+
+   - `git reset` est un outil puissant pour gérer l'historique des commits dans un dépôt Git.
+   - Utilisez-le avec prudence, car il peut entraîner la perte de données si utilisé de manière incorrecte.
+   - Assurez-vous de comprendre l'effet de chaque option (`--soft`, `--mixed`, `--hard`) avant de l'utiliser.
+
+La commande `git reset` est un outil utile pour corriger des erreurs et gérer l'historique des commits, mais elle doit être utilisée avec prudence pour éviter de perdre des données importantes.
+
 
 
 #comment voir les anciens commit :
@@ -191,11 +288,16 @@ Les commandes git remote add et git fetch sont couramment utilisées en Git pour
 
 $ git remote add origin <URL-du-depot-distant>   | origin :  "origin" est le nom conventionnellement utilisé pour faire référence au dépôt distant;
 c'est simplement un alias
-  
+
+$ git remove -v : permet d'afficher toutes les branches qui se trouve dans le depot distant  
 
 git fetch est utilisé pour récupérer les dernières modifications depuis un dépôt distant sans fusionner les modifications dans votre branche de travail locale.
 
-$ git fetch origin 
+$ git fetch origin  : origin c'est le nom du dossier distant ; cette commande permet 
+de recuperr les dernieres modifications
+
+En effet :
+git fetch récupère les modifications du dépôt distant, mais vous devez ensuite utiliser git merge ou git rebase pour mettre à jour votre copie de travail locale avec ces modifications.
 
 
 "git remote add " est utilisé pour ajouter une référence à un dépôt distant,
@@ -305,3 +407,35 @@ La commande `git push origin master` est utilisée pour pousser la branche local
 4. Une fois que le processus est terminé avec succès, les modifications de la branche "master" de votre dépôt local seront maintenant reflétées dans la branche "master" du dépôt distant "origin".
 
 Cela signifie que les changements que vous avez effectués localement dans la branche "master" ont été partagés avec les autres collaborateurs du dépôt distant. La commande `git push` est essentielle pour synchroniser votre travail local avec le travail de l'équipe dans un environnement collaboratif. Assurez-vous d'avoir une compréhension claire des implications de cette commande, car elle modifie l'historique du dépôt distant.
+
+
+## Notion de Fork et de pull request :
+
+
+La notion de "fork" et de "pull request" est essentielle dans le contexte de Git et de plates-formes de gestion de code telles que GitHub. Elles sont couramment utilisées pour contribuer à des projets open source ou collaborer sur des dépôts Git. Voici une explication détaillée de ces deux concepts :
+
+## Fork (Fourche) :
+
+Un "fork" en Git (ou une "fourche" en français) fait référence à la création d'une copie indépendante d'un dépôt Git existant. Voici comment cela fonctionne :
+
+1. **Création d'une copie :** Lorsque vous "fork" un dépôt sur des plateformes de gestion de code comme GitHub, vous créez une copie du dépôt original dans votre propre compte utilisateur. Cette copie est stockée dans votre espace personnel et est complètement distincte du dépôt d'origine.
+
+2. **Indépendance :** Une fois que vous avez forké un dépôt, vous pouvez travailler sur votre propre version du projet sans affecter le dépôt original. Cela signifie que vous pouvez apporter des modifications, ajouter de nouvelles fonctionnalités, corriger des bugs, etc., sans autorisation de l'auteur du projet d'origine.
+
+3. **Mise à jour :** Cependant, votre copie (fork) n'est pas automatiquement mise à jour à partir du dépôt original. Vous devrez régulièrement synchroniser votre fork avec le dépôt d'origine si vous souhaitez incorporer les dernières modifications.
+
+4. **Contributions :** L'un des principaux cas d'utilisation d'un fork est de contribuer à des projets open source. Une fois que vous avez apporté des modifications dans votre fork, vous pouvez proposer ces modifications au projet d'origine sous forme de "pull request" (demande de fusion).
+
+## Pull Request (Demande de Fusion) :
+
+Un "pull request" (PR) est une proposition formelle pour fusionner les modifications que vous avez apportées dans votre fork avec le dépôt d'origine. Voici comment fonctionne un pull request :
+
+1. **Création du pull request :** Une fois que vous avez effectué des modifications dans votre fork, vous créez un pull request pour informer le propriétaire du dépôt d'origine de ces modifications.
+
+2. **Discussion :** Les PRs sont accompagnés de commentaires et de discussions, où vous et le propriétaire du dépôt d'origine pouvez discuter des modifications proposées, demander des clarifications, ou apporter des ajustements si nécessaire.
+
+3. **Révision et Fusion :** Le propriétaire du dépôt original peut passer en revue les modifications proposées dans le PR. S'il est satisfait, il peut fusionner les modifications dans le dépôt original.
+
+4. **Travail Collaboratif :** Les pull requests facilitent le travail collaboratif sur des projets open source en permettant à de multiples contributeurs de soumettre leurs contributions de manière organisée.
+
+En résumé, un fork vous permet de créer une copie d'un dépôt Git existant dans votre propre compte, tandis qu'un pull request vous permet de proposer des modifications de votre fork vers le dépôt d'origine. Ces deux concepts sont essentiels pour contribuer et collaborer efficacement sur des projets hébergés sur des plateformes comme GitHub.
