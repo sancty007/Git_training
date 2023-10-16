@@ -1,4 +1,7 @@
 
+
+
+
 1. **Ajouter un dépôt distant :** Pour lier votre dépôt local à un dépôt distant, utilisez la commande `git remote add`. Vous pouvez spécifier un alias (nom court) pour le dépôt distant et son URL.
    $ git remote add alias url
 
@@ -120,6 +123,12 @@ $ git clone https://github.com/utilisateur/nom-depot.git (Cela clonera le dépô
 
 
 $ git pull (faire des mise à jour du depot ou projet )
+{
+   $ git pull origin main --allow-unrelated-histories :Après avoir exécuté cette commande, Git fusionnera les histoires, même si elles sont considérées comme non apparentées
+   (vous pouvez forcer la fusion en utilisant l'option --allow-unrelated-histories)
+   $ git pull origin main 
+   $ git pull origin ma_branche
+}
 
 - `git init` est utilisé pour initialiser un nouveau dépôt Git dans un répertoire local vide.
 
@@ -438,4 +447,28 @@ Un "pull request" (PR) est une proposition formelle pour fusionner les modificat
 
 4. **Travail Collaboratif :** Les pull requests facilitent le travail collaboratif sur des projets open source en permettant à de multiples contributeurs de soumettre leurs contributions de manière organisée.
 
-En résumé, un fork vous permet de créer une copie d'un dépôt Git existant dans votre propre compte, tandis qu'un pull request vous permet de proposer des modifications de votre fork vers le dépôt d'origine. Ces deux concepts sont essentiels pour contribuer et collaborer efficacement sur des projets hébergés sur des plateformes comme GitHub.
+En résumé, un fork vous permet de créer une copie d'un dépôt Git existant dans votre 	
+propre compte, tandis qu'un pull request vous permet de proposer des modifications de votre fork vers le dépôt d'origine. Ces deux concepts sont essentiels pour contribuer et collaborer efficacement sur des projets hébergés sur des plateformes comme GitHub.
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+ 
+""" 
+
+
+        #permutation des valeurs liées aux indices de la liste "indices"
+        indices[i],indices[j]=indices[j],indices[i]
+
+    """ affectation des valeurs aléatoires aux differentes équipes selon 
+            notre liste consacrée aux indices """
+
+    team1=[student_List[i] for i in indices[:mi_list]]
+    team2=[student_List[i] for i in indices[mi_list:]]
+
+    print(team1)
+    print(team2) 
+"""
