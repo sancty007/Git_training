@@ -453,22 +453,41 @@ propre compte, tandis qu'un pull request vous permet de proposer des modificatio
 
 
 ------------------------------------------------------------------------------------------------
+### Git Bisect :
 
+Git Bisect est une commande qui permet de trouver un commit spécifique qui a introduit un bug en utilisant une recherche binaire dans l'historique des commits.
 
+- **Commandes Git Bisect :**
 
- 
-""" 
+    1. **git bisect start :** Démarre le processus de recherche du commit problématique.
+    2. **git bisect bad <commit> :** Marque le commit actuel comme mauvais (contenant le bug).
+    3. **git bisect good <commit> :** Marque un commit connu comme bon (ne contenant pas le bug).
+    4. **git bisect reset :** Termine le processus de bisect et revient à l'état initial.
 
+### Git Stash :
 
-        #permutation des valeurs liées aux indices de la liste "indices"
-        indices[i],indices[j]=indices[j],indices[i]
+Git Stash est utilisé pour enregistrer temporairement les modifications non validées afin de nettoyer votre répertoire de travail sans avoir à valider ou à compromettre vos changements.
 
-    """ affectation des valeurs aléatoires aux differentes équipes selon 
-            notre liste consacrée aux indices """
+- **Commandes Git Stash :**
 
-    team1=[student_List[i] for i in indices[:mi_list]]
-    team2=[student_List[i] for i in indices[mi_list:]]
+    1. **git stash :** Enregistre temporairement les modifications locales non validées.
+    2. **git stash list :** Affiche la liste des stash enregistrés.
+    3. **git stash apply :** Applique les derniers changements stashés sans les supprimer.
+    4. **git stash pop :** Applique et supprime les changements du stash le plus récent.
+    5. **git stash drop :** Supprime un stash spécifique de la liste.
 
-    print(team1)
-    print(team2) 
-"""
+### Git Flow :
+
+Git Flow est une méthodologie de gestion des branches Git, populaire pour organiser le développement logiciel en définissant des règles strictes pour le nommage et l'utilisation des branches.
+
+- **Commandes Git Flow (en utilisant l'extension git-flow) :**
+
+    1. **git flow init :** Initialise un nouveau dépôt avec la structure Git Flow.
+    2. **git flow feature start <nom> :** Crée une nouvelle branche de fonctionnalité.
+    3. **git flow feature finish <nom> :** Fusionne et supprime une branche de fonctionnalité.
+    4. **git flow release start <version> :** Commence une nouvelle branche de version.
+    5. **git flow release finish <version> :** Termine une version et fusionne les modifications.
+    6. **git flow hotfix start <nom> :** Commence une branche de correctif rapide pour des correctifs urgents.
+    7. **git flow hotfix finish <nom> :** Termine un correctif rapide et le fusionne.
+
+Les commandes Git Flow sont généralement utilisées avec l'extension Git Flow, qui n'est pas toujours présente par défaut dans Git. Il faut l'installer séparément pour l'utiliser.
