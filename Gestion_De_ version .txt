@@ -1,0 +1,35 @@
+Pour spécifier et gérer les versions dans un projet logiciel au fur et à mesure de son évolution, il existe des pratiques et des systèmes de gestion de versions. Deux méthodes courantes pour gérer les versions sont le Versionnage Sémantique (Semantic Versioning) et l'utilisation de tags dans Git.
+
+### Versionnage Sémantique (Semantic Versioning) :
+
+Le Versionnage Sémantique est une convention de numérotation des versions en trois chiffres (X.Y.Z), où chaque chiffre a une signification spécifique : 
+
+- **X** représente la version majeure : Les changements majeurs qui peuvent ne pas être rétrocompatibles.
+- **Y** représente la version mineure : Des ajouts de fonctionnalités rétrocompatibles.
+- **Z** représente la version de correctif : Des corrections de bugs rétrocompatibles.
+
+Lors de la progression du développement, vous augmentez le numéro de version selon les types de changements apportés au logiciel.
+
+### Utilisation des tags dans Git pour marquer les versions :
+
+Dans Git, vous pouvez marquer des points spécifiques dans l'historique en utilisant des tags. Ces tags servent à marquer des versions spécifiques de votre logiciel.
+
+- **Création d'un tag :**
+
+    ```bash
+    git tag -a v1.0.0 -m "Version 1.0.0"
+    ```
+
+- **Pousser les tags vers le référentiel distant :**
+
+    ```bash
+    git push origin v1.0.0
+    ```
+
+Ces tags marquent un point spécifique dans votre historique Git, ce qui rend facile le suivi des versions. Lorsque vous créez des releases ou des versions stables de votre logiciel, ajoutez un tag correspondant.
+
+### Gestion au fur et à mesure :
+
+Lorsque vous ajoutez de nouvelles fonctionnalités, effectuez des corrections de bugs ou apportez des changements majeurs, vous pouvez incrémenter les numéros de version en suivant les règles du Versionnage Sémantique. À chaque étape significative du développement, créez un tag pour marquer la version, et assurez-vous de mettre à jour les informations de version dans votre code source (par exemple, un fichier `version.txt` ou `package.json`).
+
+En utilisant à la fois le Versionnage Sémantique et les tags Git, vous pouvez gérer les versions de manière organisée tout au long du développement de votre logiciel, en identifiant clairement chaque étape du processus.
