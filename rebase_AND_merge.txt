@@ -1,0 +1,44 @@
+La différence fonctionnelle principale entre le rebase et le merge dans Git réside dans la manière dont ils fusionnent des branches et gèrent l'historique des commits.
+
+1. **Merge :**
+   - Le merge crée un nouveau commit de fusion qui combine les modifications de deux branches.
+   - L'historique des commits reste linéaire et conserve l'historique de chaque branche.
+   - Un commit de fusion (merge commit) est créé, indiquant les deux branches impliquées dans la fusion.
+
+   ```plaintext
+   A---B---C---D---E---F  (branche principale)
+                \
+                 G---H  (branche à fusionner)
+   ```
+
+   Après un merge :
+
+   ```plaintext
+   A---B---C---D---E---F---I  (branche principale avec commit de fusion)
+                \         /
+                 G---H  (branche à fusionner)
+   ```
+
+2. **Rebase :**
+   - Le rebase transfère les modifications de la branche à fusionner au bout de la branche principale.
+   - L'historique des commits devient linéaire, sans commit de fusion supplémentaire.
+   - Les commits de la branche à fusionner sont rejoués sur la branche principale.
+
+
+   A---B---C---D---E---F  (branche principale)
+                \
+                 G---H  (branche à fusionner)
+
+
+   Après un rebase :
+
+   A---B---C---D---E---F---G'---H'  (branche principale après le rebase)
+
+
+   Notez que les commits G et H ont été appliqués comme de nouveaux commits G' et H' au bout de la branche principale.
+
+**Choisir entre rebase et merge :**
+- **Merge :** Utile pour conserver un historique clair des différentes branches et des points de fusion. Il est souvent préféré pour les branches publiques partagées.
+- **Rebase :** Utile pour maintenir un historique linéaire et épuré. Il peut être utilisé pour simplifier l'historique avant de pousser les modifications dans une branche partagée.
+
+Le choix entre rebase et merge dépend souvent des préférences d'équipe, des politiques de fusion et de la manière dont vous souhaitez que l'historique des commits apparaisse dans le projet. Il est important de noter que le rebase modifie l'historique des commits, tandis que le merge conserve l'historique d'origine.
