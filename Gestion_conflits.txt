@@ -1,0 +1,32 @@
+Git est un système de contrôle de version largement utilisé pour gérer le code source de manière collaborative. Lorsqu'il y a des conflits dans Git, cela se produit généralement lorsque deux branches ont des modifications concurrentes sur les mêmes lignes de code ou fichiers.
+
+Pour résoudre ces conflits, voici les étapes générales à suivre :
+
+1. **Mise à jour du dépôt local :**
+   Avant de commencer à travailler, assurez-vous que votre copie locale est à jour en exécutant `git pull` pour récupérer les dernières modifications de la branche principale ou de la branche avec laquelle vous travaillez.
+
+2. **Branches et fusion :**
+   Si vous avez des conflits lors de la fusion de branches, utilisez la commande `git merge` ou `git rebase`. Les conflits surviennent souvent lors d'une fusion via `git merge`.
+
+   - **`git merge` :** Combine les modifications de deux branches. Lorsqu'il y a un conflit, Git indique les fichiers conflictuels.
+   - **`git rebase` :** Réapplique les modifications d'une branche sur une autre. Cela peut éviter certains conflits, mais peut également en générer.
+
+3. **Résolution des conflits :**
+   Une fois que Git signale un conflit, ouvrez les fichiers conflictuels dans un éditeur de texte. Les sections en conflit seront marquées entre `<<<<<<<`, `=======`, et `>>>>>>>`.
+
+   - Manuellement, modifiez ces sections pour conserver le code nécessaire, supprimer les marqueurs de conflit et résoudre les différences.
+   - Une fois les modifications effectuées, enregistrez les fichiers.
+
+4. **Ajout des fichiers résolus :**
+   Après avoir résolu les conflits, utilisez la commande `git add` pour ajouter les fichiers modifiés à l'index de Git.
+
+5. **Finalisation de la fusion ou du rebase :**
+   Poursuivez la fusion ou le rebase en utilisant `git merge --continue` ou `git rebase --continue` une fois que tous les conflits sont résolus et les fichiers ajoutés.
+
+6. **Validation et sauvegarde :**
+   Après avoir terminé la résolution des conflits, effectuez un `git commit` pour valider les modifications.
+
+7. **Pousser les modifications :**
+   Enfin, utilisez `git push` pour pousser les modifications résolues vers le dépôt distant.
+
+Ces étapes sont générales et peuvent varier en fonction de votre flux de travail Git et des outils que vous utilisez. Il est crucial de comprendre comment résoudre les conflits dans Git pour éviter toute perte de code et maintenir l'intégrité du projet.
