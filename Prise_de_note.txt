@@ -328,7 +328,7 @@ tandis que "git fetch" est utilisé pour récupérer les modifications à partir
 En résumé, les branches sont un outil essentiel pour gérer le développement dans Git. Elles permettent d'organiser le travail, de collaborer efficacement et de maintenir un historique de développement propre et organisé pour les projets logiciels.
 
 
-Parlant travail en equipe : 
+## Parlant travail en equipe : 
 
 Travailler en équipe avec Git est courant dans le développement de logiciels collaboratifs. Voici une liste de certaines des commandes Git les plus couramment utilisées pour faciliter le travail d'équipe :
 
