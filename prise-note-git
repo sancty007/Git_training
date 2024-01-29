@@ -125,7 +125,11 @@ $ git clone https://github.com/utilisateur/nom-depot.git (Cela clonera le dépô
 $ git pull (faire des mise à jour du depot ou projet )
 {
    $ git pull origin main --allow-unrelated-histories :Après avoir exécuté cette commande, Git fusionnera les histoires, même si elles sont considérées comme non apparentées
-   (vous pouvez forcer la fusion en utilisant l'option --allow-unrelated-histories)
+   (
+	     vous pouvez forcer la fusion en utilisant l'option
+	    --allow-unrelated-histories
+   )
+  
    $ git pull origin main 
    $ git pull origin ma_branche
 }
