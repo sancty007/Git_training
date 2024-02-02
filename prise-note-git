@@ -393,10 +393,16 @@ T
    git remote add origin <URL-du-depot-distant>
 }
 
+Modifier le dépôt distant existant : 
+
+git remote set-url origin "url"
+
+
 ***git remote -v ** : Pour vous assurer que le dépôt distant est correctement associé à votre dépôt local, 
 
 
 25. **`git remote remove`** : Supprime un dépôt distant de la liste des dépôts distants configurés.
+
 
 26. **`git cherry-pick`** : Permet de sélectionner des commits spécifiques à partir d'une branche et de les appliquer à une autre.
 
