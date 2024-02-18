@@ -1,4 +1,5 @@
-Git est un système de contrôle de version largement utilisé pour gérer le code source de manière collaborative. Lorsqu'il y a des conflits dans Git, cela se produit généralement lorsque deux branches ont des modifications concurrentes sur les mêmes lignes de code ou fichiers.
+Git est un système de contrôle de version largement utilisé pour gérer le code source de manière collaborative. 
+Lorsqu'il y a des conflits dans Git, cela se produit généralement lorsque deux branches ont des modifications concurrentes sur les mêmes lignes de code ou fichiers.
 
 Pour résoudre ces conflits, voici les étapes générales à suivre :
 

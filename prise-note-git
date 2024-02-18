@@ -1,7 +1,5 @@
 
 
-
-
 1. **Ajouter un dépôt distant :** Pour lier votre dépôt local à un dépôt distant, utilisez la commande `git remote add`. Vous pouvez spécifier un alias (nom court) pour le dépôt distant et son URL.
    $ git remote add alias url
 
@@ -501,3 +499,33 @@ Git Flow est une méthodologie de gestion des branches Git, populaire pour organ
     7. **git flow hotfix finish <nom> :** Termine un correctif rapide et le fusionne.
 
 Les commandes Git Flow sont généralement utilisées avec l'extension Git Flow, qui n'est pas toujours présente par défaut dans Git. Il faut l'installer séparément pour l'utiliser.
+
+
+#-----------------------------------------------------------------------
+
+
+Pour copier un fichier qui se trouve sur une branche Git vers la branche principale (généralement appelée `main`), vous devez effectuer les étapes suivantes :
+
+1. **Checkout de la branche principale (`main` ou `master`):** Tout d'abord, assurez-vous que vous êtes sur la branche principale de votre référentiel Git. Vous pouvez le faire en utilisant la commande `git checkout main` (ou `git checkout master` si vous utilisez une ancienne convention de nommage).
+
+   ```bash
+   git checkout main
+   ```
+
+2. **Copie du fichier depuis la branche source :** Une fois sur la branche principale, vous pouvez utiliser la commande `git checkout` pour extraire un fichier spécifique de la branche source. Utilisez le chemin relatif du fichier pour le récupérer.
+
+   ```bash
+   git checkout source-branch path/to/file
+   ```
+
+   Remplacez `source-branch` par le nom de votre branche source et `path/to/file` par le chemin relatif du fichier que vous souhaitez copier.
+
+3. **Commit des modifications :** Une fois que vous avez copié le fichier depuis la branche source vers la branche principale, vous devez commettre ces modifications en utilisant la commande `git commit`.
+
+   ```bash
+   git commit -m "Copie du fichier depuis la branche source"
+   ```
+
+
+
+
