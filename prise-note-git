@@ -1,18 +1,27 @@
 
 
-1. **Ajouter un dépôt distant :** Pour lier votre dépôt local à un dépôt distant, utilisez la commande `git remote add`. Vous pouvez spécifier un alias (nom court) pour le dépôt distant et son URL.
+1. **Ajouter un dépôt distant :** Pour lier votre dépôt local à un dépôt distant, utilisez la commande
+   
+```bash 
+git remote add`.
+```
+Vous pouvez spécifier un alias (nom court) pour le dépôt distant et son URL.
+
    $ git remote add alias url
-
    Exemple :
-   $ git remote add origin https://github.com/votre-utilisateur/votre-depot.git
-  
-2. **Vérifier les dépôts distants :** Pour vérifier la liste des dépôts distants associés à votre dépôt local, utilisez `git remote -v` :
 
-   $ git remote -v
+```bash 
+   git remote add origin https://github.com/votre-utilisateur/votre-depot.git
+```
+1. **Vérifier les dépôts distants :** 
+-- Pour vérifier la liste des dépôts distants associés à votre dépôt local, utilisez `git remote -v` :
 
+```bash
+git remote -v
+```
    Cette commande vous montrera les alias et les URL des dépôts distants associés à votre dépôt local.
 
-3. **Vérifier les branches distantes :** Pour voir les branches distantes qui existent dans le dépôt distant que vous avez ajouté, vous pouvez utiliser `git branch -r` ou `git branch -a` :
+1. **Vérifier les branches distantes :** Pour voir les branches distantes qui existent dans le dépôt distant que vous avez ajouté, vous pouvez utiliser `git branch -r` ou `git branch -a` :
 
    $ git branch -r
 
@@ -33,10 +42,7 @@
 
 Votre procédure a été corrigée pour refléter la séquence correcte d'opérations. Assurez-vous d'adapter les noms d'alias et d'URL à vos propres besoins et configurations spécifiques.
 
-
-
-
-https://git-scm.com/doc  : documentation officielle 
+***https://git-scm.com/doc  : documentation officielle**
 
 GIT est un système de gestion de versions décentralisé (VCS, pour Version Control System) qui permet de suivre l'évolution des fichiers et du code source d'un projet informatique. Il a été créé par Linus Torvalds en 2005 et est devenu un outil essentiel pour les développeurs de logiciels, les équipes de développement et les projets collaboratifs.
 
@@ -61,10 +67,11 @@ En résumé, GIT est un système de gestion de versions largement utilisé dans 
 Git bash :
 
 configuration de git : 
+
 git config --global user.name  ""
 git config --global user.email "l'adresse"
 
-#Creation d'un dossier et initialisation :
+## Creation d'un dossier et initialisation :
 git init (initialiser un repertoire quand on est dedans )
 
 # Enregister un fichier (syncronisation):
@@ -529,3 +536,24 @@ Pour copier un fichier qui se trouve sur une branche Git vers la branche princip
 
 
 
+## Enregistrer des fragments
+
+-- **Mettre en suspens des modifications non finies pour y revenir plus tard**
+
+```bash 
+git stash
+```
+
+--**Enregistre de manière temporaire tous les fichiers sous suivi de version qui ont été modifiés (“remiser son travail”)**
+
+$ git stash pop
+
+***Applique une remise et la supprime immédiatement**
+
+$ git stash list
+
+**Liste toutes les remises**
+
+$ git stash drop
+
+Supprime la remise la plus récente
