@@ -557,3 +557,125 @@ $ git stash list
 $ git stash drop
 
 Supprime la remise la plus récente
+
+
+Modifier le message d'un commit dans Git peut être fait de différentes manières, selon si le commit est le plus récent ou un commit plus ancien dans l'historique. Voici comment procéder pour chaque situation :
+
+### Modifier le Message du Dernier Commit
+
+Si vous souhaitez modifier le message du commit le plus récent, vous pouvez utiliser la commande suivante :
+
+```sh
+git commit --amend
+```
+
+Cette commande ouvre l'éditeur de texte par défaut avec le message du dernier commit. Vous pouvez modifier ce message, puis enregistrer et fermer l'éditeur pour appliquer le changement. Voici un exemple complet :
+
+1. Modifiez le message du dernier commit :
+    ```sh
+    git commit --amend
+    ```
+2. Un éditeur de texte s'ouvrira avec le message du commit :
+    ```
+    # Please enter the commit message for your changes. Lines starting
+    # with '#' will be ignored, and an empty message aborts the commit.
+    #
+    # Date:      Mon May 17 14:22:18 2021 -0700
+    #
+    # On branch main
+    #
+    # Initial commit
+    #
+    # Changes to be committed:
+    #       new file:   example.txt
+    #
+    ```
+3. Modifiez le message, enregistrez et fermez l'éditeur.
+
+### Modifier le Message d'un Commit Ancien
+
+Si vous avez besoin de modifier le message d'un commit plus ancien, vous devrez réécrire l'historique en utilisant `git rebase -i`. Voici comment faire :
+
+1. Lancez une rebase interactive en spécifiant la plage de commits que vous voulez réécrire. Par exemple, pour réécrire les 3 derniers commits :
+    ```sh
+    git rebase -i HEAD~3
+    ```
+2. Un éditeur de texte s'ouvrira avec une liste des commits :
+    ```
+    pick e1c2a1b Commit message 1
+    pick d2c3b2c Commit message 2
+    pick a3c4d3e Commit message 3
+    ```
+3. Changez `pick` en `reword` pour les commits dont vous voulez modifier les messages :
+    ```
+    reword e1c2a1b Commit message 1
+    pick d2c3b2c Commit message 2
+    pick a3c4d3e Commit message 3
+    ```
+4. Enregistrez et fermez l'éditeur. Pour chaque commit marqué `reword`, un éditeur de texte s'ouvrira pour que vous puissiez modifier le message du commit :
+    ```
+    # Rebase 5c6e7f8..a3c4d3e onto 5c6e7f8 (3 commands)
+    #
+    # Commands:
+    # p, pick = use commit
+    # r, reword = use commit, but edit the commit message
+    # e, edit = use commit, but stop for amending
+    # s, squash = use commit, but meld into previous commit
+    # f, fixup = like "squash", but discard this commit's log message
+    # x, exec = run command (the rest of the line) using shell
+    # b, break = stop here (continue rebase later with 'git rebase --continue')
+    # d, drop = remove commit
+    # l, label = label current HEAD with a name
+    # t, reset = reset HEAD to a label
+    # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+    #
+    # These lines can be re-ordered; they are executed from top to bottom.
+    #
+    # If you remove a line here THAT COMMIT WILL BE LOST.
+    #
+    # However, if you remove everything, the rebase will be aborted.
+    #
+    # Note that empty commits are commented out
+    ```
+5. Modifiez le message du commit, enregistrez et fermez l'éditeur.
+
+### Pousser les Changements au Dépôt Distant
+
+Après avoir modifié l'historique des commits, vous devrez forcer la mise à jour du dépôt distant. Utilisez `git push --force` pour cela :
+
+```sh
+git push --force
+```
+
+**Attention** : L'utilisation de `--force` peut réécrire l'historique des commits partagés avec d'autres. Assurez-vous que personne d'autre ne dépend de ces commits, ou utilisez `git push --force-with-lease` pour une approche plus sûre.
+
+### Exemple Complet
+
+Pour résumer, voici un exemple complet pour modifier le message du dernier commit :
+
+1. Amender le dernier commit :
+    ```sh
+    git commit --amend
+    ```
+2. Modifier le message dans l'éditeur, enregistrer et fermer.
+3. Pousser les changements au dépôt distant :
+    ```sh
+    git push --force
+    ```
+
+Et pour modifier un ancien commit :
+
+1. Lancer une rebase interactive :
+    ```sh
+    git rebase -i HEAD~3
+    ```
+2. Remplacer `pick` par `reword` pour les commits à modifier, enregistrer et fermer.
+3. Modifier les messages des commits, enregistrer et fermer pour chaque commit.
+4. Continuer le rebase s'il y a des conflits :
+    ```sh
+    git rebase --continue
+    ```
+5. Pousser les changements au dépôt distant :
+    ```sh
+    git push --force
+    ```
